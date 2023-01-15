@@ -21,21 +21,29 @@
           <div class="d-flex aside-width">
             <div class="react-left ml-4 react-l-s">
               <span class="react-left"></span>
+              <span class="text">数据分析1</span>
             </div>
             <div class="react-left ml-3">
+              <span class="text">数据分析2</span>
             </div>
           </div>
           <div class="d-flex aside-width">
-            <div class="react-right mr-3 react-l-s">
+            <div class="react-right mr-3">
+              <span class="text">数据分析3</span>
             </div>
             <div class="react-right mr-4 react-l-s">
               <span class="react-after"></span>
+              <span class="text">{{ time }}</span>
             </div>
           </div>
         </div>
 
         <div class="body-box">
+          <div class="left-box">
 
+          </div>
+          <div class="center-box"></div>
+          <div class="right-box"></div>
         </div>
       </div>
     </div>
@@ -45,24 +53,37 @@
 <script>
 
 import drawMixin from "../utils/drawMixin";
+import {formatTime} from "@/utils";
+
 export default {
   name: "index_page",
-  mixins: [ drawMixin ],
+  mixins: [drawMixin],
   data() {
     return {
       loading: true,
-      decorationColor: ['#568aea', '#000000']
+      decorationColor: ['#568aea', '#000000'],
+      time: null,
+      getTime: null
     }
   },
   components: {},
   mounted() {
+    this.startGetTime()
     this.cancelLoading()
+  },
+  beforeDestroy() {
+    clearInterval(this.getTime)
   },
   methods: {
     cancelLoading() {
       setTimeout(() => {
         this.loading = false
       }, 500)
+    },
+    startGetTime() {
+      this.getTime = setInterval(() => {
+        this.time = formatTime(new Date(), "yyyy-MM-dd HH: mm: ss")
+      }, 1000)
     }
   }
 }

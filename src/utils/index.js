@@ -15,7 +15,7 @@ export function debounce(fn, delay) {
 }
 
 /**
- * @param {date} time 需要转换的时间
+ * @param {Date} time 需要转换的时间
  * @param {String} fmt 需要转换的格式 如 yyyy-MM-dd、yyyy-MM-dd HH:mm:ss
  */
 export function formatTime(time, fmt) {

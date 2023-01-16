@@ -125,21 +125,27 @@
     }
 
     .body-box {
+      height: 930px;
       margin-top: 16px;
       display: flex;
       flex-direction: row;
 
       .left-box {
+        width: 400px;
         display: grid;
         grid-template-rows: repeat(2,50%);
       }
 
       .center-box {
+        width: 1000px;
         margin-left: 10px;
+        margin-right: 10px;
+        display: grid;
+        grid-template-columns: repeat(1,100%);
       }
 
       .right-box {
-        margin-left: 10px;
+        width: 450px;
         display: grid;
         grid-template-columns: repeat(2, 50%);
       }

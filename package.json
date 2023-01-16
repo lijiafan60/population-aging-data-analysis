@@ -10,6 +10,7 @@
   "dependencies": {
     "@jiaminghi/data-view": "^2.10.0",
     "core-js": "^3.8.3",
+    "echarts": "^5.4.1",
     "node-sass": "^8.0.0",
     "sass-loader": "^13.2.0",
     "vue": "^2.6.14",

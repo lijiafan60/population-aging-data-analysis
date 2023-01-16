@@ -40,10 +40,28 @@
 
         <div class="body-box">
           <div class="left-box">
-
+            <div>
+              <dv-border-box-12>
+                <rose-pie-chart/>
+              </dv-border-box-12>
+            </div>
+            <div>
+              <dv-border-box12/>
+            </div>
           </div>
-          <div class="center-box"></div>
-          <div class="right-box"></div>
+          <div class="center-box">
+            <div>
+              <dv-border-box12/>
+            </div>
+          </div>
+          <div class="right-box">
+            <div>
+              <dv-border-box12/>
+            </div>
+            <div>
+              <dv-border-box12/>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -54,6 +72,7 @@
 
 import drawMixin from "../utils/drawMixin";
 import {formatTime} from "@/utils";
+import rosePieChart from "@/components/echart/RosePieChart/chart.vue";
 
 export default {
   name: "index_page",
@@ -66,7 +85,9 @@ export default {
       getTime: null
     }
   },
-  components: {},
+  components: {
+    rosePieChart,
+  },
   mounted() {
     this.startGetTime()
     this.cancelLoading()

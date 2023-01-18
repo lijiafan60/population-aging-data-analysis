@@ -42,11 +42,13 @@
           <div class="left-box">
             <div>
               <dv-border-box-12>
-                <rose-pie-chart/>
+                <multiple-y-axis-chart/>
               </dv-border-box-12>
             </div>
             <div>
-              <dv-border-box12/>
+              <dv-border-box12>
+                <rose-pie-chart/>
+              </dv-border-box12>
             </div>
           </div>
           <div class="center-box">
@@ -73,6 +75,7 @@
 import drawMixin from "../utils/drawMixin";
 import {formatTime} from "@/utils";
 import rosePieChart from "@/components/echart/RosePieChart/chart.vue";
+import MultipleYAxisChart from "@/components/echart/MultipleYAxisChart/chart.vue";
 
 export default {
   name: "index_page",
@@ -86,6 +89,7 @@ export default {
     }
   },
   components: {
+    MultipleYAxisChart,
     rosePieChart,
   },
   mounted() {

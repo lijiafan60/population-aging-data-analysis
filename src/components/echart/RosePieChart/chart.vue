@@ -3,10 +3,9 @@
     <div class="bg-color-black">
       <div class="d-flex jc-center">
         <Echart
-            id="rosePieChart"
-            class="rosePieChart"
             width="368px"
-            height="433px"
+            height="410px"
+            style="margin-top: 20px"
             :options="options"
         ></Echart>
       </div>
@@ -22,37 +21,40 @@ export default {
   data() {
     return {
       options: {
+        title: {
+          text: '各省年龄结构',
+          subtext: '江苏省',
+          left: 'center'
+        },
         legend: {
           top: 'bottom'
         },
-        toolbox: {
-          show: true,
-          feature: {
-            mark: {show: true},
-            dataView: {show: true, readOnly: false},
-            restore: {show: true},
-            saveAsImage: {show: true}
-          }
+        tooltip: {
+          trigger: 'item',
+          formatter: '{b} : {c} ({d}%)'
         },
         series: [
           {
-            name: 'Nightingale Chart',
+            name: '年龄结构',
             type: 'pie',
-            radius: [30, 100],
-            center: ['50%', '45%'],
+            radius: [30, 150],
+            center: ['50%', '50%'],
             roseType: 'area',
             itemStyle: {
-              borderRadius: 5
+              borderRadius: 8
+            },
+            label: {
+              show: false
+            },
+            emphasis: {
+              label: {
+                show: true
+              }
             },
             data: [
-              {value: 30, name: 'rose 1'},
-              {value: 20, name: 'rose 2'},
-              {value: 32, name: 'rose 3'},
-              {value: 30, name: 'rose 4'},
-              {value: 28, name: 'rose 5'},
-              {value: 40, name: 'rose 6'},
-              {value: 22, name: 'rose 7'},
-              {value: 18, name: 'rose 8'}
+              {value: 25, name: '0-14'},
+              {value: 35, name: '15-64'},
+              {value: 40, name: '65以上'},
             ]
           }
         ]
@@ -80,6 +82,5 @@ $box-height: 465px;
     height: $box-height - 30px;
     border-radius: 10px;
   }
-;
 }
 </style>

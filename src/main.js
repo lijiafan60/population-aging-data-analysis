@@ -3,18 +3,25 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import dataV from '@jiaminghi/data-view';
-import * as echarts from 'echarts'
-import { ToolboxComponent, LegendComponent } from 'echarts/components';
-import { PieChart } from 'echarts/charts';
-import { LabelLayout } from 'echarts/features';
-import { CanvasRenderer } from 'echarts/renderers';
+import * as echarts from 'echarts/core'
+import {ToolboxComponent, LegendComponent, TooltipComponent, GridComponent, TitleComponent} from 'echarts/components';
+import {PieChart, BarChart, LineChart} from 'echarts/charts';
+import {LabelLayout, UniversalTransition} from 'echarts/features';
+import {CanvasRenderer} from 'echarts/renderers';
 import './assets/scss/style.scss';
+
 echarts.use([
+    TitleComponent,
     ToolboxComponent,
     LegendComponent,
     PieChart,
     CanvasRenderer,
-    LabelLayout
+    LabelLayout,
+    TooltipComponent,
+    GridComponent,
+    BarChart,
+    LineChart,
+    UniversalTransition
 ]);
 
 Vue.prototype.$echarts = echarts

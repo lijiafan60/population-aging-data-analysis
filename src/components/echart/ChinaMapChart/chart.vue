@@ -2,7 +2,7 @@
   <div id="chinaMap">
     <div class="bg-color-black">
       <MapChart width="900px"
-              height="895px"
+              height="900px"
               :options="options"/>
     </div>
   </div>
@@ -49,9 +49,9 @@ export default {
           </p>
         `
             return htmlStr
-          }
-          // backgroundColor:"#ff7f50",//提示标签背景颜色
-          // textStyle:{color:"#fff"} //提示标签字体颜色
+          },
+          backgroundColor:"#ff7f50",//提示标签背景颜色
+          textStyle:{color:"#fff"} //提示标签字体颜色
         },
         // visualMap的详细配置解析：https://echarts.baidu.com/option.html#visualMap
         visualMap: { // 左下角的颜色区域
@@ -73,7 +73,7 @@ export default {
         // geo配置详解： https://echarts.baidu.com/option.html#geo
         geo: { // 地理坐标系组件用于地图的绘制
           map: 'china', // 表示中国地图
-          // roam: true, // 是否开启鼠标缩放和平移漫游
+          roam: true, // 是否开启鼠标缩放和平移漫游
           zoom: 1.2, // 当前视角的缩放比例（地图的放大比例）
           label: {
             show: true
@@ -95,13 +95,10 @@ export default {
               show: true
             },
             // 这是需要配置地图上的某个地区的数据，根据后台的返回的数据进行拼接（下面是我定义的假数据）
-            data: [{
+            data: [
+                {
               'name': '北京',
               'value': 599,
-              'perf': '0.501s', // 性能
-              'downloadSpeep': '1.221MB/s', // 下载速度
-              'usability': '100%', // 可用性
-              'point': '250' // 监测点
             }, {
               'name': '上海',
               'value': 142
@@ -111,10 +108,6 @@ export default {
             }, {
               'name': '新疆',
               'value': 999,
-              'perf': '0.501s', // 性能
-              'downloadSpeep': '1.221MB/s', // 下载速度
-              'usability': '100%', // 可用性
-              'point': '250' // 监测点
             }, {
               'name': '深圳',
               'value': 92

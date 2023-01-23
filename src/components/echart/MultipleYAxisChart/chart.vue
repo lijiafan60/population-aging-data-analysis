@@ -3,7 +3,7 @@
     <div class="bg-color-black">
       <div class="d-flex jc-center">
         <Echart
-            width="368px"
+            width="450px"
             height="433px"
             style="margin-top: 20px"
             :options="options"
@@ -122,17 +122,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$box-width: 400px;
-$box-height: 465px;
 
 #multipleYAxisChart {
   padding: 16px;
-  width: $box-width;
-  height: $box-height;
   border-radius: 10px;
 
   .bg-color-black {
-    height: $box-height - 30px;
+    height: 435px;
     border-radius: 10px;
   }
 }

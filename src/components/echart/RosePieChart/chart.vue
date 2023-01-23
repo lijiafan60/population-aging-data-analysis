@@ -69,17 +69,13 @@ export default {
 
 <style lang="scss" scoped>
 
-$box-width: 400px;
-$box-height: 465px;
 
 #rosePieChart {
   padding: 16px;
-  width: $box-width;
-  height: $box-height;
   border-radius: 10px;
 
   .bg-color-black {
-    height: $box-height - 30px;
+    height: 435px;
     border-radius: 10px;
   }
 }

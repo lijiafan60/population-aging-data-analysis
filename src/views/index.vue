@@ -58,10 +58,14 @@
           </div>
           <div class="right-box">
             <div>
-              <dv-border-box12/>
+              <dv-border-box12>
+                <scroll-board/>
+              </dv-border-box12>
             </div>
             <div>
-              <dv-border-box12/>
+              <dv-border-box12>
+                <scroll-board/>
+              </dv-border-box12>
             </div>
           </div>
         </div>
@@ -76,6 +80,7 @@ import drawMixin from "../utils/drawMixin";
 import {formatTime} from "@/utils";
 import rosePieChart from "@/components/echart/RosePieChart/chart.vue";
 import MultipleYAxisChart from "@/components/echart/MultipleYAxisChart/chart.vue";
+import ScrollBoard from "@/components/ScrollBoard.vue";
 
 export default {
   name: "index_page",
@@ -89,6 +94,7 @@ export default {
     }
   },
   components: {
+    ScrollBoard,
     MultipleYAxisChart,
     rosePieChart,
   },

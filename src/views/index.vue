@@ -53,7 +53,9 @@
           </div>
           <div class="center-box">
             <div>
-              <dv-border-box12/>
+              <dv-border-box12>
+                <china-map/>
+              </dv-border-box12>
             </div>
           </div>
           <div class="right-box">
@@ -81,6 +83,7 @@ import {formatTime} from "@/utils";
 import rosePieChart from "@/components/echart/RosePieChart/chart.vue";
 import MultipleYAxisChart from "@/components/echart/MultipleYAxisChart/chart.vue";
 import ScrollBoard from "@/components/ScrollBoard.vue";
+import ChinaMap from "@/components/echart/ChinaMapChart/chart.vue"
 
 export default {
   name: "index_page",
@@ -94,6 +97,7 @@ export default {
     }
   },
   components: {
+    ChinaMap,
     ScrollBoard,
     MultipleYAxisChart,
     rosePieChart,

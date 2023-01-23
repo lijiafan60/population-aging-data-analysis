@@ -1,20 +1,16 @@
 <template>
-  <div :id="id" :class="className" :style="{ height: height, width: width }" />
+  <div id="mapChart" :class="className" :style="{ height: height, width: width }"/>
 </template>
 
 <script>
-import tdTheme from './theme.json' // 引入默认主题
+import chinaJson from "./china.json"
 
 export default {
-  name: 'e-chart',
+  name: 'mapChart',
   props: {
     className: {
       type: String,
-      default: 'chart'
-    },
-    id: {
-      type: String,
-      default: 'chart'
+      default: 'mapChart'
     },
     width: {
       type: String,
@@ -26,17 +22,17 @@ export default {
     },
     options: {
       type: Object,
-      default: ()=>({})
+      default: () => ({})
     }
   },
-  data () {
+  data() {
     return {
       chart: null
     }
   },
   watch: {
     options: {
-      handler (options) {
+      handler(options) {
         // 设置true清空echart \
         // 缓存
         this.chart.setOption(options, true)
@@ -44,18 +40,18 @@ export default {
       deep: true
     }
   },
-  mounted () {
-    this.$echarts.registerTheme('tdTheme', tdTheme); // 覆盖默认主题
+  mounted() {
+    this.$echarts.registerMap('china', {geoJSON: chinaJson});
     this.initChart();
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.chart.dispose()
     this.chart = null
   },
   methods: {
-    initChart () {
-      this.chart = this.$echarts.init(this.$el, 'tdTheme')
-      this.chart.setOption(this.options, true)
+    initChart() {
+      this.chart = this.$echarts.init(document.getElementById("mapChart"));
+      this.chart.setOption(this.options,true)
     }
   }
 }

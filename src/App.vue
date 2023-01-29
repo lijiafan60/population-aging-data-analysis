@@ -21,19 +21,19 @@
             <div class="d-flex aside-width">
               <div class="react-left ml-4 react-l-s">
                 <span class="react-left"></span>
-                <span class="text">数据分析1</span>
+                <span class="text">数据概览</span>
               </div>
               <div class="react-left ml-3">
-                <span class="text">数据分析2</span>
+                <span class="text">养老保险</span>
               </div>
             </div>
             <div class="d-flex aside-width">
               <div class="react-right mr-3">
-                <span class="text">数据分析3</span>
+                <span class="text">养老服务情况</span>
               </div>
               <div class="react-right mr-4 react-l-s">
                 <span class="react-after"></span>
-                <span class="text">{{ time }}</span>
+                <span class="text">相关政策</span>
               </div>
             </div>
           </div>

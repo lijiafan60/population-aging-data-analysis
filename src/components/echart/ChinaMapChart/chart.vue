@@ -24,12 +24,7 @@ export default {
             if (params.data) {
               localValue = params.data.value
             }
-            let htmlStr = `
-          <div style='font-size:18px;'> ${params.name}</div>
-          <p style='text-align:left;margin-top:-10px;'>
-	          value：${localValue}<br/>
-          </p>
-        `
+            let htmlStr = ` <div style='font-size:18px;margin-bottom: 8px'> ${params.name} : ${localValue}</div> `
             return htmlStr
           },
           backgroundColor: "#ff7f50",//提示标签背景颜色

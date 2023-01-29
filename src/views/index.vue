@@ -36,7 +36,6 @@
 
 <script>
 
-
 import rosePieChart from "@/components/echart/RosePieChart/chart.vue";
 import MultipleYAxisChart from "@/components/echart/MultipleYAxisChart/chart.vue";
 import ScrollBoard from "@/components/ScrollBoard.vue";
@@ -82,5 +81,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/index.scss';
+.body-box {
+  height: 930px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+
+  .left-box {
+    width: 500px;
+    display: grid;
+    grid-template-rows: repeat(2, 50%);
+  }
+
+  .center-box {
+    width: 950px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+  }
+
+  .right-box {
+    width: 450px;
+    display: grid;
+    grid-template-rows: repeat(2, 50%);
+  }
+}
 </style>

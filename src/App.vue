@@ -21,19 +21,19 @@
             <div class="d-flex aside-width">
               <div class="react-left ml-4 react-l-s">
                 <span class="react-left"></span>
-                <span class="text">数据概览</span>
+                <router-link to="/" tag="span" class="text">数据概览</router-link>
               </div>
               <div class="react-left ml-3">
-                <span class="text">养老保险</span>
+                <router-link to="/pension" tag="span" class="text">养老保险</router-link>
               </div>
             </div>
             <div class="d-flex aside-width">
               <div class="react-right mr-3">
-                <span class="text">养老服务情况</span>
+                <router-link to="/service" tag="span" class="text">养老服务</router-link>
               </div>
               <div class="react-right mr-4 react-l-s">
                 <span class="react-after"></span>
-                <span class="text">相关政策</span>
+                <router-link to="/policy" tag="span" class="text">相关政策</router-link>
               </div>
             </div>
           </div>

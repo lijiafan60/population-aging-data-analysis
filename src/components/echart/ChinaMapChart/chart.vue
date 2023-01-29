@@ -96,6 +96,12 @@ export default {
             },
             // 这是需要配置地图上的某个地区的数据，根据后台的返回的数据进行拼接（下面是我定义的假数据）
             data: [
+              {
+                'name':"南海诸岛",value:0,
+                itemStyle:{
+                  normal:{opacity:0,label:{show:false}}
+                }
+              },
                 {
               'name': '北京',
               'value': 599,

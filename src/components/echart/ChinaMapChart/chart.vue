@@ -2,58 +2,39 @@
   <div id="chinaMap">
     <div class="bg-color-black">
       <MapChart width="900px"
-              height="900px"
-              :options="options"/>
+                height="890px"
+                :options="options"/>
     </div>
   </div>
 </template>
 
 <script>
 import MapChart from "@/common/echart/map.vue";
+
 export default {
   name: "ChinaMap",
   components: {MapChart},
   data() {
     return {
       options: {
-        tooltip: { // 鼠标移到图里面的浮动提示框
-          // formatter详细配置： https://echarts.baidu.com/option.html#tooltip.formatter
-          formatter (params) {
+        tooltip: {
+          formatter(params) {
             // params.data 就是series配置项中的data数据遍历
-            let localValue,
-                perf,
-                downloadSpeep,
-                usability,
-                point
+            let localValue = 0
             if (params.data) {
               localValue = params.data.value
-              perf = params.data.perf
-              downloadSpeep = params.data.downloadSpeep
-              usability = params.data.usability
-              point = params.data.point
-            } else { // 为了防止没有定义数据的时候报错写的
-              localValue = 0
-              perf = 0
-              downloadSpeep = 0
-              usability = 0
-              point = 0
             }
             let htmlStr = `
           <div style='font-size:18px;'> ${params.name}</div>
           <p style='text-align:left;margin-top:-10px;'>
-	          区域对应数据value：${localValue}<br/>
-	          性能perf：${perf}<br/>
-	          下载速度downloadSpeep：${downloadSpeep}<br/>
-	          可用性usability：${usability}<br/>
-	          监测点数point：${point}<br/>
+	          value：${localValue}<br/>
           </p>
         `
             return htmlStr
           },
-          backgroundColor:"#ff7f50",//提示标签背景颜色
-          textStyle:{color:"#fff"} //提示标签字体颜色
+          backgroundColor: "#ff7f50",//提示标签背景颜色
+          textStyle: {color: "#fff"} //提示标签字体颜色
         },
-        // visualMap的详细配置解析：https://echarts.baidu.com/option.html#visualMap
         visualMap: { // 左下角的颜色区域
           type: 'piecewise', // 定义为分段型 visualMap
           min: 0,
@@ -70,9 +51,8 @@ export default {
             {value: 0, label: '无数据', color: '#999'} // [0]
           ]
         },
-        // geo配置详解： https://echarts.baidu.com/option.html#geo
-        geo: { // 地理坐标系组件用于地图的绘制
-          map: 'china', // 表示中国地图
+        geo: { // https://echarts.apache.org/zh/option.html#geo
+          map: 'china', // 使用 registerMap 注册的地图名称
           roam: true, // 是否开启鼠标缩放和平移漫游
           zoom: 1.2, // 当前视角的缩放比例（地图的放大比例）
           label: {
@@ -94,36 +74,30 @@ export default {
             label: {
               show: true
             },
-            // 这是需要配置地图上的某个地区的数据，根据后台的返回的数据进行拼接（下面是我定义的假数据）
             data: [
               {
-                'name':"南海诸岛",value:0,
-                itemStyle:{
-                  normal:{opacity:0,label:{show:false}}
-                }
-              },
-                {
-              'name': '北京',
-              'value': 599,
-            }, {
-              'name': '上海',
-              'value': 142
-            }, {
-              'name': '黑龙江',
-              'value': 44
-            }, {
-              'name': '新疆',
-              'value': 999,
-            }, {
-              'name': '深圳',
-              'value': 92
-            }, {
-              'name': '湖北',
-              'value': 810
-            }, {
-              'name': '四川',
-              'value': 453
-            }]
+                'name': '北京',
+                'value': 599,
+              }, {
+                'name': '上海',
+                'value': 142
+              }, {
+                'name': '黑龙江',
+                'value': 44
+              }, {
+                'name': '新疆',
+                'value': 999,
+              }, {
+                'name': '深圳',
+                'value': 92
+              }, {
+                'name': '湖北',
+                'value': 810
+              }, {
+                'name': '四川',
+                'value': 453
+              }
+            ]
           }
         ]
       }

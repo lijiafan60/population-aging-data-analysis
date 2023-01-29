@@ -41,7 +41,7 @@ export default {
     }
   },
   mounted() {
-    this.$echarts.registerMap('china', {geoJSON: chinaJson});
+    this.$echarts.registerMap('china', chinaJson);
     this.initChart();
   },
   beforeDestroy() {

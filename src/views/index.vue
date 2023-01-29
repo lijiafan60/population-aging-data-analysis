@@ -22,12 +22,12 @@
     <div class="right-box">
       <div>
         <dv-border-box12>
-          <scroll-board/>
+          <scroll-board :title="title" :config="config"/>
         </dv-border-box12>
       </div>
       <div>
         <dv-border-box12>
-          <scroll-board/>
+          <scroll-board :title="title" :config="config"/>
         </dv-border-box12>
       </div>
     </div>
@@ -50,6 +50,34 @@ export default {
     MultipleYAxisChart,
     rosePieChart,
   },
+  data() {
+    return {
+      title : "title",
+      config: {
+        header: ['组件', '分支'],
+        data: [
+          ['组件1', 'dev-1'],
+          ['组件2', 'dev-2'],
+          ['组件3', 'dev-3'],
+          ['组件4', 'rea-1'],
+          ['组件5', 'rea-2'],
+          ['组件6', 'fix-2'],
+          ['组件7', 'fix-4'],
+          ['组件8', 'fix-7'],
+          ['组件9', 'dev-2'],
+          ['组件10', 'dev-9']
+        ],
+        rowNum: 7,
+        headerHeight: 35,
+        headerBGC: '#0f1325',
+        oddRowBGC: '#0f1325',
+        evenRowBGC: '#171c33',
+        index: true,
+        columnWidth: [60],
+        align: ['center']
+      }
+    }
+  }
 }
 </script>
 

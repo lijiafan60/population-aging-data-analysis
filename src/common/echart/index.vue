@@ -37,8 +37,7 @@ export default {
   watch: {
     options: {
       handler (options) {
-        // 设置true清空echart \
-        // 缓存
+        // 设置true清空echart缓存
         this.chart.setOption(options, true)
       },
       deep: true

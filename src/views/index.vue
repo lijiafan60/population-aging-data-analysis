@@ -15,7 +15,9 @@
     <div class="center-box">
       <div>
         <dv-border-box12>
-          <china-map/>
+          <KeepAlive>
+            <component :is="centerName"/>
+          </KeepAlive>
         </dv-border-box12>
       </div>
     </div>
@@ -36,10 +38,11 @@
 
 <script>
 
-import rosePieChart from "@/components/echart/RosePieChart/chart.vue";
+import RosePieChart from "@/components/echart/RosePieChart/chart.vue";
 import MultipleYAxisChart from "@/components/echart/MultipleYAxisChart/chart.vue";
 import ScrollBoard from "@/components/ScrollBoard.vue";
 import ChinaMap from "@/components/echart/ChinaMapChart/chart.vue"
+import BeiJing from "@/components/echart/Provinces/BeiJing.vue"
 
 export default {
   name: "index_page",
@@ -47,11 +50,12 @@ export default {
     ChinaMap,
     ScrollBoard,
     MultipleYAxisChart,
-    rosePieChart,
+    RosePieChart,
+    BeiJing
   },
   data() {
     return {
-      title : "title",
+      title: "title",
       config: {
         header: ['组件', '分支'],
         data: [
@@ -74,6 +78,17 @@ export default {
         index: true,
         columnWidth: [60],
         align: ['center']
+      },
+    }
+  },
+  computed: {
+    centerName: {
+      type: String,
+      get() {
+        return this.$store.state.indexPageCenterName
+      },
+      set(param) {
+        this.$store.commit('changeCenterName',param)
       }
     }
   }

@@ -4,6 +4,7 @@
 
 <script>
 import chinaJson from "./china.json"
+import {pinyin} from "pinyin-pro";
 
 export default {
   name: 'mapChart',
@@ -47,9 +48,18 @@ export default {
     this.chart = null
   },
   methods: {
+    provinceClick(param) {
+      this.$store.commit('changeCenterName',param)
+    },
     initChart() {
       this.chart = this.$echarts.init(document.getElementById("mapChart"));
       this.chart.setOption(this.options,true)
+      this.chart.on('click',(params) => {
+        console.log(params)
+        this.provinceClick(pinyin(params.name,{toneType: 'none'}).replace(/\b[a-z]/g,function (match) {
+          return match.toUpperCase();
+        }).replace(/\s*/g,""));
+      })
     }
   }
 }

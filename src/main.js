@@ -10,6 +10,7 @@ import {LabelLayout, UniversalTransition} from 'echarts/features';
 import {CanvasRenderer} from 'echarts/renderers';
 import {MapChart} from "echarts/charts";
 import { VisualMapComponent } from 'echarts/components';
+import { pinyin } from 'pinyin-pro';
 import './assets/scss/style.scss';
 
 echarts.use([
@@ -25,7 +26,8 @@ echarts.use([
     LineChart,
     UniversalTransition,
     MapChart,
-    VisualMapComponent
+    VisualMapComponent,
+    pinyin
 ]);
 
 

@@ -24,12 +24,12 @@
     <div class="right-box">
       <div>
         <dv-border-box12>
-          <scroll-board :title="title" :config="config"/>
+          <scroll-board :title="rightTop.title" :config="rightTop.config"/>
         </dv-border-box12>
       </div>
       <div>
         <dv-border-box12>
-          <scroll-board :title="title" :config="config"/>
+          <scroll-board :title="rightBottom.title" :config="rightBottom.config"/>
         </dv-border-box12>
       </div>
     </div>
@@ -55,30 +55,58 @@ export default {
   },
   data() {
     return {
-      title: "title",
-      config: {
-        header: ['组件', '分支'],
-        data: [
-          ['组件1', 'dev-1'],
-          ['组件2', 'dev-2'],
-          ['组件3', 'dev-3'],
-          ['组件4', 'rea-1'],
-          ['组件5', 'rea-2'],
-          ['组件6', 'fix-2'],
-          ['组件7', 'fix-4'],
-          ['组件8', 'fix-7'],
-          ['组件9', 'dev-2'],
-          ['组件10', 'dev-9']
-        ],
-        rowNum: 7,
-        headerHeight: 35,
-        headerBGC: '#0f1325',
-        oddRowBGC: '#0f1325',
-        evenRowBGC: '#171c33',
-        index: true,
-        columnWidth: [60],
-        align: ['center']
+      rightTop: {
+        title: "老年人口抚养比",
+        config: {
+          header: ['省份', '抚养比'],
+          data: [
+            ['江苏省', '1%'],
+            ['安徽省', '2%'],
+            ['北京市', '3%'],
+            ['上海市', '1%'],
+            ['江西省', '2%'],
+            ['广东省', '2%'],
+            ['黑龙江省', '4%'],
+            ['浙江省', '7%'],
+            ['云南省', '2%'],
+            ['广西省', '9%']
+          ],
+          rowNum: 7,
+          headerHeight: 35,
+          headerBGC: '#0f1325',
+          oddRowBGC: '#0f1325',
+          evenRowBGC: '#171c33',
+          index: true,
+          columnWidth: [60],
+          align: ['center']
+        },
       },
+      rightBottom: {
+        title: "地区生产总值",
+        config: {
+          header: ['省份', '生产总值'],
+          data: [
+            ['北京市', '10亿'],
+            ['上海市', '1亿'],
+            ['浙江省', '7亿'],
+            ['广西省', '9亿'],
+            ['江西省', '9亿'],
+            ['广东省', '9亿'],
+            ['黑龙江省', '9亿'],
+            ['安徽省', '9亿'],
+            ['云南省', '9亿'],
+            ['江苏省', '9亿'],
+          ],
+          rowNum: 7,
+          headerHeight: 35,
+          headerBGC: '#0f1325',
+          oddRowBGC: '#0f1325',
+          evenRowBGC: '#171c33',
+          index: true,
+          columnWidth: [60],
+          align: ['center']
+        }
+      }
     }
   },
   computed: {
@@ -88,7 +116,7 @@ export default {
         return this.$store.state.mapName
       },
       set(param) {
-        this.$store.commit('clickProvinceName',param)
+        this.$store.commit('clickProvinceName', param)
       }
     }
   }

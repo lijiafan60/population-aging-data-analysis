@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     provinceClick(param) {
-      this.$store.commit('changeCenterName',param)
+      this.$store.commit('clickProvinceName',param)
     },
     initChart() {
       this.chart = this.$echarts.init(document.getElementById("mapChart"));

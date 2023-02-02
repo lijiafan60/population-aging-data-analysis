@@ -5,16 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    indexPageCenterName: "ChinaMap",
-    nameMap: [
-
-    ]
+    provinceName: "",
+    mapName: "ChinaMap"
   },
   getters: {
   },
   mutations: {
-    changeCenterName(state, name) {
-      state.indexPageCenterName = name;
+    clickProvinceName(state, name) {
+      state.provinceName = name;
+      state.mapName = "ProvinceDetail";
     }
   },
   actions: {

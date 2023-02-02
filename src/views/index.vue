@@ -41,8 +41,8 @@
 import RosePieChart from "@/components/echart/RosePieChart/chart.vue";
 import MultipleYAxisChart from "@/components/echart/MultipleYAxisChart/chart.vue";
 import ScrollBoard from "@/components/ScrollBoard.vue";
-import ChinaMap from "@/components/echart/ChinaMapChart/chart.vue"
-import BeiJing from "@/components/echart/Provinces/BeiJing.vue"
+import ChinaMap from "@/components/echart/ChinaMapChart/chart.vue";
+import ProvinceDetail from "@/components/echart/ProvinceDetail/index.vue";
 
 export default {
   name: "index_page",
@@ -51,7 +51,7 @@ export default {
     ScrollBoard,
     MultipleYAxisChart,
     RosePieChart,
-    BeiJing
+    ProvinceDetail
   },
   data() {
     return {
@@ -85,10 +85,10 @@ export default {
     centerName: {
       type: String,
       get() {
-        return this.$store.state.indexPageCenterName
+        return this.$store.state.mapName
       },
       set(param) {
-        this.$store.commit('changeCenterName',param)
+        this.$store.commit('clickProvinceName',param)
       }
     }
   }

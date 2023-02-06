@@ -22,8 +22,8 @@ export default {
     return {
       options: {
         title: {
-          text: '各省年龄结构',
-          subtext: '江苏省',
+          text: '年龄结构',
+          // subtext: '江苏省',
           left: 'center'
         },
         legend: {

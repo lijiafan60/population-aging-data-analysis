@@ -6,7 +6,16 @@
           <div class="d-flex jc-center">
             <div class="left-0">
               <div class="province-text">
-                江苏省
+                <el-dropdown>
+                  <span class="el-dropdown-link">下拉菜单 </span>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>黄金糕</el-dropdown-item>
+                    <el-dropdown-item>狮子头</el-dropdown-item>
+                    <el-dropdown-item>螺蛳粉</el-dropdown-item>
+                    <el-dropdown-item>双皮奶</el-dropdown-item>
+                    <el-dropdown-item>蚵仔煎</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
               </div>
             </div>
             <div class="left-1">
@@ -74,6 +83,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
 .body-box {
   height: 930px;
   margin-top: 16px;
@@ -100,6 +111,9 @@ export default {
       .province-text {
         font-size: x-large;
         text-align: center;
+        .el-dropdown-link {
+          cursor: pointer;
+        }
       }
     }
 

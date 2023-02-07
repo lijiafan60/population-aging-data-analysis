@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Index from '@/views/index.vue'
-import Pension from '@/views/pension.vue'
-import Service from "@/views/service.vue";
-import Policy from "@/views/policy.vue";
+import Index from '@/views/home/index.vue'
+import Pension from '@/views/pension/index.vue'
+import Service from "@/views/service/index.vue";
+import Policy from "@/views/policy/index.vue";
 
 Vue.use(VueRouter)
 

@@ -14,10 +14,10 @@
                 <span class="outside-text">基本养老保险</span>
               </div>
               <div class="inside">
-                <span class="inside-text">参保人数</span>
+                <span class="inside-text" @click="changeIndex('BasicPensionNumber')">参保人数</span>
               </div>
               <div class="inside">
-                <span class="inside-text">收支结余</span>
+                <span class="inside-text" @click="changeIndex('BasicPensionBalance')">收支结余</span>
               </div>
             </div>
             <div class="left-2">
@@ -25,10 +25,10 @@
                 <span class="outside-text">城乡居民社会养老保险</span>
               </div>
               <div class="inside">
-                <span class="inside-text">参保人数</span>
+                <span class="inside-text" @click="changeIndex('SocialPensionNumber')">参保人数</span>
               </div>
               <div class="inside">
-                <span class="inside-text">收支结余</span>
+                <span class="inside-text" @click="changeIndex('SocialPensionBalance')">收支结余</span>
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@
         <div class="bg-color-black">
           <div class="d-flex jc-center">
             <div class="chart-div">
-              <EChart height="800px" width="1250px" :options="options"></EChart>
+              <component :is="index"></component>
             </div>
           </div>
         </div>
@@ -51,56 +51,23 @@
 
 <script>
 import EChart from "@/common/echart/index.vue";
+import BasicPensionBalance from "@/views/pension/basic/balance.vue";
+import BasicPensionNumber from "@/views/pension/basic/number.vue";
+import SocialPensionBalance from "@/views/pension/social/balance.vue";
+import SocialPensionNumber from "@/views/pension/social/number.vue";
 
 export default {
   name: "pension_page",
-  components: {EChart},
+  components: {SocialPensionNumber, SocialPensionBalance, BasicPensionNumber, BasicPensionBalance, EChart},
   data() {
     return {
-      options: {
-        tooltip: {
-          trigger: 'axis'
-        },
-        legend: {
-          data: ['总人数', '在职人数', '离职人数']
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: {
-          type: 'category',
-          name: '年份',
-          boundaryGap: false,
-          data: ['2016', '2017', '2018', '2019', '2020', '2021', '2022']
-        },
-        yAxis: {
-          type: 'value',
-          name: '人数（千万）'
-        },
-        series: [
-          {
-            name: '总人数',
-            type: 'line',
-            stack: 'Total',
-            data: [10, 15, 12.5, 5, 5, 5, 5]
-          },
-          {
-            name: '在职人数',
-            type: 'line',
-            stack: 'Total',
-            data: [22, 18, 19, 23, 29, 33, 31]
-          },
-          {
-            name: '离职人数',
-            type: 'line',
-            stack: 'Total',
-            data: [15, 23, 21, 15, 19, 13, 10]
-          }
-        ]
-      },
+      index: "BasicPensionNumber"
+    }
+  },
+  methods: {
+    changeIndex(curIndex) {
+      this.index = curIndex;
+      console.log(this.index)
     }
   }
 }

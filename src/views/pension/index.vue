@@ -6,8 +6,9 @@
           <div class="d-flex jc-center">
             <div class="left-0">
               <div class="province-text">
-                江苏省
-              </div>
+              <my-select class="my-select" :options="options" v-model="choice"> </my-select>
+                </div>
+
             </div>
             <div class="left-1">
               <div class="outside">
@@ -55,13 +56,33 @@ import BasicPensionBalance from "@/views/pension/basic/balance.vue";
 import BasicPensionNumber from "@/views/pension/basic/number.vue";
 import SocialPensionBalance from "@/views/pension/social/balance.vue";
 import SocialPensionNumber from "@/views/pension/social/number.vue";
+import MySelect from "@/components/Select.vue";
 
 export default {
   name: "pension_page",
-  components: {SocialPensionNumber, SocialPensionBalance, BasicPensionNumber, BasicPensionBalance, EChart},
+  components: {MySelect, SocialPensionNumber, SocialPensionBalance, BasicPensionNumber, BasicPensionBalance, EChart},
   data() {
     return {
-      index: "BasicPensionNumber"
+      index: "BasicPensionNumber",
+      options: [
+        {
+          key: 1,
+          text: "江苏"
+        },
+        {
+          key: 2,
+          text: "北京"
+        },
+        {
+          key: 3,
+          text: "江西"
+        },
+        {
+          key: 4,
+          text: "山东"
+        }
+      ],
+      choice: ""
     }
   },
   methods: {
@@ -99,7 +120,11 @@ export default {
 
       .province-text {
         font-size: x-large;
-        text-align: center;
+
+        .my-select {
+          position: absolute;
+          z-index: 10;
+        }
       }
     }
 

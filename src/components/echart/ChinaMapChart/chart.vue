@@ -1,10 +1,8 @@
 <template>
   <div id="chinaMap">
-    <div class="bg-color-black">
-      <MapChart width="900px"
-                height="890px"
-                :options="options"/>
-    </div>
+    <MapChart width="900px"
+              height="820px"
+              :options="options"/>
   </div>
 </template>
 
@@ -105,9 +103,5 @@ export default {
 #chinaMap {
   padding: 20px 16px 16px;
   border-radius: 5px;
-
-  .bg-color-black {
-    border-radius: 10px;
-  }
 }
 </style>

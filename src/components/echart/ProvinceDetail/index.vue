@@ -1,14 +1,12 @@
 <template>
   <div id="province">
-    <div class="bg-color-black">
-      <div class="d-flex jc-center">
-        <div class="top d-flex jc-center text">
-          省份 : {{this.$store.state.provinceName}}
-        </div>
-        <div class="bottom">
-          <EChart height="550px" width="900px" style="margin-top: 10px" :options="options">
-          </EChart>
-        </div>
+    <div class="d-flex jc-center">
+      <div class="top d-flex jc-center text">
+        省份 : {{ this.$store.state.provinceName }}
+      </div>
+      <div class="bottom">
+        <EChart height="550px" width="900px" style="margin-top: 10px" :options="options">
+        </EChart>
       </div>
     </div>
   </div>
@@ -74,24 +72,25 @@ export default {
 <style lang="scss" scoped>
 #province {
   padding: 20px 16px 16px;
-  .bg-color-black {
-    border-radius: 10px;
-    .d-flex {
-      flex-direction: column
-    }
-    .top {
-      height: 200px;
-      margin-bottom: 20px;
-      margin-top: 16px;
-    }
-    .text {
-      text-align: center;
-      font-size: x-large;
-    }
-    .bottom {
-      height: 650px;
-      margin-bottom: 10px;
-    }
+
+  .d-flex {
+    flex-direction: column
+  }
+
+  .top {
+    height: 180px;
+    margin-bottom: 20px;
+    margin-top: 16px;
+  }
+
+  .text {
+    text-align: center;
+    font-size: x-large;
+  }
+
+  .bottom {
+    height: 590px;
+    margin-bottom: 10px;
   }
 }
 </style>

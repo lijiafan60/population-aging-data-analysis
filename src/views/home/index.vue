@@ -15,9 +15,16 @@
     <div class="center-box">
       <div>
         <dv-border-box12>
-          <KeepAlive>
-            <component :is="centerName"/>
-          </KeepAlive>
+          <div class="map-box">
+            <div class="bg-color-black">
+              <div class="box-content">
+                <KeepAlive>
+                  <component :is="centerName"/>
+                </KeepAlive>
+              </div>
+              <time-line/>
+            </div>
+          </div>
         </dv-border-box12>
       </div>
     </div>
@@ -43,10 +50,12 @@ import MultipleYAxisChart from "@/components/echart/MultipleYAxisChart/chart.vue
 import ScrollBoard from "@/components/ScrollBoard.vue";
 import ChinaMap from "@/components/echart/ChinaMapChart/chart.vue";
 import ProvinceDetail from "@/components/echart/ProvinceDetail/index.vue";
+import TimeLine from "@/components/TimeLine.vue";
 
 export default {
   name: "index_page",
   components: {
+    TimeLine,
     ChinaMap,
     ScrollBoard,
     MultipleYAxisChart,
@@ -140,8 +149,24 @@ export default {
     width: 950px;
     margin-left: 5px;
     margin-right: 5px;
-    display: grid;
-    grid-template-columns: repeat(1, 100%);
+
+    .map-box {
+      width: 950px;
+      height: 930px;
+      display: grid;
+      grid-template-rows: 84fr 5fr;
+
+      .bg-color-black {
+        width: 918px;
+        height: 900px;
+        margin: 16px;
+        border-radius: 10px;
+
+        .box-content {
+          height: 840px;
+        }
+      }
+    }
   }
 
   .right-box {

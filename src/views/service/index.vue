@@ -28,7 +28,9 @@
     </div>
     <div class="right-body-box">
       <dv-border-box6>
-        <div class="bg-color-black"></div>
+        <div class="bg-color-black">
+          <dv-capsule-chart class="dv-cap-chart" :config="config"/>
+        </div>
       </dv-border-box6>
     </div>
   </div>
@@ -45,6 +47,34 @@ export default {
   components: {
     MainCarer,
     RetirementPlace, MechanismImpression, MechanismUnderstandingDegree
+  },
+  data() {
+    return {
+      config: {
+        data: [
+          {
+            name: '南阳',
+            value: 167
+          },
+          {
+            name: '周口',
+            value: 67
+          },
+          {
+            name: '漯河',
+            value: 123
+          },
+          {
+            name: '郑州',
+            value: 55
+          },
+          {
+            name: '西峡',
+            value: 98
+          }
+        ]
+      }
+    }
   }
 }
 </script>

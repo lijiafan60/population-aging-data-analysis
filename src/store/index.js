@@ -14,6 +14,10 @@ export default new Vuex.Store({
     clickProvinceName(state, name) {
       state.provinceName = name;
       state.mapName = "ProvinceDetail";
+    },
+    backToChinaMap(state) {
+      state.provinceName = "";
+      state.mapName = "ChinaMap";
     }
   },
   actions: {

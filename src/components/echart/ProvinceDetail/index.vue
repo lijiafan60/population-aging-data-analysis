@@ -1,7 +1,7 @@
 <template>
   <div id="province">
     <div class="d-flex jc-center">
-      <div class="top d-flex jc-center text">
+      <div class="top d-flex jc-center text" @click="toChinaMap">
         省份 : {{ this.$store.state.provinceName }}
       </div>
       <div class="bottom">
@@ -63,7 +63,11 @@ export default {
           }
         ]
       },
-
+    }
+  },
+  methods: {
+    toChinaMap() {
+      this.$store.commit("backToChinaMap")
     }
   }
 }

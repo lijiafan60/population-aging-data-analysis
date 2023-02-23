@@ -66,14 +66,8 @@ export default {
     return {}
   },
   computed: {
-    centerName: {
-      type: String,
-      get() {
-        return this.$store.state.mapName
-      },
-      set(param) {
-        this.$store.commit('clickProvinceName', param)
-      }
+    centerName() {
+      return this.$store.state.mapName
     },
     gdp() {
       return {

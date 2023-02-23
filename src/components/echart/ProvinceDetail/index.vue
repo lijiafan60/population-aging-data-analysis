@@ -2,10 +2,10 @@
   <div id="province">
     <div class="d-flex jc-center">
       <div class="top d-flex jc-center text" @click="toChinaMap">
-        省份 : {{ this.$store.state.provinceName }}
+        {{ province }}
       </div>
       <div class="bottom">
-        <EChart height="550px" width="900px" style="margin-top: 10px" :options="options">
+        <EChart height="550px" width="900px" style="margin-top: 10px" :options="dynamicOptions">
         </EChart>
       </div>
     </div>
@@ -19,13 +19,24 @@ export default {
   name: "provinceDetail",
   components: {EChart},
   data() {
-    return {
-      options: {
+    return {}
+  },
+  methods: {
+    toChinaMap() {
+      this.$store.commit("backToChinaMap")
+    }
+  },
+  computed: {
+    province() {
+      return this.$store.state.province;
+    },
+    dynamicOptions() {
+      return {
         tooltip: {
           trigger: 'axis'
         },
         legend: {
-          data: ['人口出生率', '人口死亡率', '人口平均增长率']
+          data: ['人口出生率', '人口死亡率', '人口自然增长率']
         },
         grid: {
           left: '3%',
@@ -37,37 +48,33 @@ export default {
           type: 'category',
           name: '年份',
           boundaryGap: false,
-          data: ['2016', '2017', '2018', '2019', '2020', '2021', '2022']
+          data: ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2021']
         },
         yAxis: {
           type: 'value',
+          name: '%'
         },
         series: [
           {
             name: '人口出生率',
             type: 'line',
             stack: 'Total',
-            data: [10, 15, 12.5, 5, 5, 5, 5]
+            data: this.$store.state.currentBirthRate
           },
           {
             name: '人口死亡率',
             type: 'line',
             stack: 'Total',
-            data: [22, 18, 19, 23, 29, 33, 31]
+            data: this.$store.state.currentDieRate
           },
           {
-            name: '人口平均增长率',
+            name: '人口自然增长率',
             type: 'line',
             stack: 'Total',
-            data: [15, 23, 21, 15, 19, 13, 10]
+            data: this.$store.state.currentNaturalGrowthRate
           }
         ]
-      },
-    }
-  },
-  methods: {
-    toChinaMap() {
-      this.$store.commit("backToChinaMap")
+      }
     }
   }
 }

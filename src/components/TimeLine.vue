@@ -65,6 +65,7 @@ export default {
     changeYear(currentYear) {
       this.$store.commit("setYear",currentYear)
       this.$store.commit("getCurrentGdp")
+      this.$store.commit("getCurrentDependencyRatio")
     }
   }
 }

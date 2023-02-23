@@ -79,7 +79,7 @@ export default {
       return {
         title: "地区生产总值",
         config: {
-          header: ['省份', '生产总值'],
+          header: ['省份', '生产总值(亿元)'],
           data: this.$store.state.currentGdp,
           rowNum: 7,
           headerHeight: 35,
@@ -96,19 +96,8 @@ export default {
       return {
         title: "老年人口抚养比",
         config: {
-          header: ['省份', '抚养比'],
-          data: [
-            ['江苏省', '1%'],
-            ['安徽省', '2%'],
-            ['北京市', '3%'],
-            ['上海市', '1%'],
-            ['江西省', '2%'],
-            ['广东省', '2%'],
-            ['黑龙江省', '4%'],
-            ['浙江省', '7%'],
-            ['云南省', '2%'],
-            ['广西省', '9%']
-          ],
+          header: ['省份', '抚养比(%)'],
+          data: this.$store.state.currentDependencyRatio,
           rowNum: 7,
           headerHeight: 35,
           headerBGC: '#0f1325',
@@ -124,6 +113,7 @@ export default {
   beforeCreate() {
     //避免启动时出现空数据
     this.$store.commit("getCurrentGdp");
+    this.$store.commit("getCurrentDependencyRatio");
   }
 }
 </script>

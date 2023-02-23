@@ -71,7 +71,7 @@ export default {
     },
     gdp() {
       return {
-        title: "地区生产总值",
+        title: this.$store.state.year + " 年各省地区生产总值",
         config: {
           header: ['省份', '生产总值(亿元)'],
           data: this.$store.state.currentGdp,
@@ -88,7 +88,7 @@ export default {
     },
     dependencyRatio() {
       return {
-        title: "老年人口抚养比",
+        title: this.$store.state.year + " 年各省老年人口抚养比",
         config: {
           header: ['省份', '抚养比(%)'],
           data: this.$store.state.currentDependencyRatio,

@@ -7,6 +7,7 @@ export default new Vuex.Store({
     state: {
         year: "2011",
         province: "",
+        hoverProvince:"",
         mapName: "ChinaMap",
         currentGdp: [],
         currentDependencyRatio: [],
@@ -930,6 +931,9 @@ export default new Vuex.Store({
         },
         getCurrentDieRate(state) {
             state.currentDieRate = state.allDieRate[state.province]
+        },
+        setHoverProvince(state,param) {
+            state.hoverProvince = param
         }
     },
     actions: {},

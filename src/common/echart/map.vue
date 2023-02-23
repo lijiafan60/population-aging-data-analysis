@@ -48,15 +48,15 @@ export default {
   },
   methods: {
     provinceClick(param) {
-      this.$store.commit('clickProvinceName',param)
+      this.$store.commit('clickProvinceName', param)
       this.$store.commit('getCurrentNaturalGrowthRate')
       this.$store.commit('getCurrentBirthRate')
       this.$store.commit('getCurrentDieRate')
     },
     initChart() {
       this.chart = this.$echarts.init(document.getElementById("mapChart"));
-      this.chart.setOption(this.options,true)
-      this.chart.on('click',(params) => {
+      this.chart.setOption(this.options, true)
+      this.chart.on('click', (params) => {
         this.provinceClick(params.name);
       })
     }

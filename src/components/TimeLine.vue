@@ -45,11 +45,6 @@
       2019
     </div>
     <div class="line"></div>
-    <div class="item" @click="changeYear(2020)">
-      <br>
-      2020
-    </div>
-    <div class="line"></div>
     <div class="item" @click="changeYear(2021)">
       <br>
       2021

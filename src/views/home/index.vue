@@ -31,12 +31,12 @@
     <div class="right-box">
       <div>
         <dv-border-box12>
-          <scroll-board :title="rightTop.title" :config="rightTop.config"/>
+          <scroll-board :title="dependencyRatio.title" :config="dependencyRatio.config"/>
         </dv-border-box12>
       </div>
       <div>
         <dv-border-box12>
-          <scroll-board :title="rightBottom.title" :config="rightBottom.config"/>
+          <scroll-board :title="gdp.title" :config="gdp.config"/>
         </dv-border-box12>
       </div>
     </div>
@@ -63,8 +63,37 @@ export default {
     ProvinceDetail
   },
   data() {
-    return {
-      rightTop: {
+    return {}
+  },
+  computed: {
+    centerName: {
+      type: String,
+      get() {
+        return this.$store.state.mapName
+      },
+      set(param) {
+        this.$store.commit('clickProvinceName', param)
+      }
+    },
+    gdp() {
+      return {
+        title: "地区生产总值",
+        config: {
+          header: ['省份', '生产总值'],
+          data: this.$store.state.currentGdp,
+          rowNum: 7,
+          headerHeight: 35,
+          headerBGC: '#0f1325',
+          oddRowBGC: '#0f1325',
+          evenRowBGC: '#171c33',
+          index: true,
+          columnWidth: [60],
+          align: ['center']
+        }
+      }
+    },
+    dependencyRatio() {
+      return {
         title: "老年人口抚养比",
         config: {
           header: ['省份', '抚养比'],
@@ -88,46 +117,13 @@ export default {
           index: true,
           columnWidth: [60],
           align: ['center']
-        },
-      },
-      rightBottom: {
-        title: "地区生产总值",
-        config: {
-          header: ['省份', '生产总值'],
-          data: [
-            ['北京市', '10亿'],
-            ['上海市', '1亿'],
-            ['浙江省', '7亿'],
-            ['广西省', '9亿'],
-            ['江西省', '9亿'],
-            ['广东省', '9亿'],
-            ['黑龙江省', '9亿'],
-            ['安徽省', '9亿'],
-            ['云南省', '9亿'],
-            ['江苏省', '9亿'],
-          ],
-          rowNum: 7,
-          headerHeight: 35,
-          headerBGC: '#0f1325',
-          oddRowBGC: '#0f1325',
-          evenRowBGC: '#171c33',
-          index: true,
-          columnWidth: [60],
-          align: ['center']
         }
       }
     }
   },
-  computed: {
-    centerName: {
-      type: String,
-      get() {
-        return this.$store.state.mapName
-      },
-      set(param) {
-        this.$store.commit('clickProvinceName', param)
-      }
-    }
+  beforeCreate() {
+    //避免启动时出现空数据
+    this.$store.commit("getCurrentGdp");
   }
 }
 </script>

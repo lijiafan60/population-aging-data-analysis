@@ -891,7 +891,6 @@ export default new Vuex.Store({
         clickProvinceName(state, name) {
             state.province = name;
             state.mapName = "ProvinceDetail";
-            console.log(state.province + '0')
         },
         backToChinaMap(state) {
             state.province = "";
@@ -924,16 +923,12 @@ export default new Vuex.Store({
         },
 
         getCurrentNaturalGrowthRate(state) {
-            console.log(state.province + '1')
             state.currentNaturalGrowthRate = state.allNaturalGrowthRate[state.province]
-            console.log(state.currentNaturalGrowthRate)
         },
         getCurrentBirthRate(state) {
-            console.log(state.province + '2')
             state.currentBirthRate = state.allBirthRate[state.province]
         },
         getCurrentDieRate(state) {
-            console.log(state.province + '3')
             state.currentDieRate = state.allDieRate[state.province]
         }
     },

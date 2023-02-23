@@ -22,7 +22,7 @@
                   <component :is="centerName"/>
                 </KeepAlive>
               </div>
-              <time-line/>
+              <time-line v-show="centerName == 'ChinaMap'"/>
             </div>
           </div>
         </dv-border-box12>

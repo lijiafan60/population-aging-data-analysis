@@ -52,7 +52,6 @@ export default {
       this.$store.commit('getCurrentNaturalGrowthRate')
       this.$store.commit('getCurrentBirthRate')
       this.$store.commit('getCurrentDieRate')
-      console.log(this.$store.state.province)
     },
     initChart() {
       this.chart = this.$echarts.init(document.getElementById("mapChart"));

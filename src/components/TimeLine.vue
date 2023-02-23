@@ -63,7 +63,7 @@ export default {
   name: "TimeLine",
   methods: {
     changeYear(currentYear) {
-      this.$store.commit("setYear",currentYear)
+      this.$store.commit("setYear", currentYear)
       this.$store.commit("getCurrentGdp")
       this.$store.commit("getCurrentDependencyRatio")
     }

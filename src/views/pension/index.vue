@@ -6,13 +6,12 @@
           <div class="d-flex jc-center">
             <div class="left-0">
               <div class="province-text">
-              <my-select class="my-select" :options="options" v-model="choice"> </my-select>
-                </div>
-
+                <my-select class="my-select" :options="options" v-model="choice"></my-select>
+              </div>
             </div>
             <div class="left-1">
               <div class="outside">
-                <span class="outside-text">基本养老保险</span>
+                <span class="outside-text">城镇基本养老保险</span>
               </div>
               <div class="inside">
                 <span class="inside-text" @click="changeIndex('BasicPensionNumber')">参保人数</span>

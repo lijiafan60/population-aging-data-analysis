@@ -22,16 +22,16 @@ export default {
         visualMap: { // 左下角的颜色区域
           type: 'piecewise', // 定义为分段型 visualMap
           min: 0,
-          max: 1000,
+          max: 100,
           itemWidth: 40,
           bottom: 60,
-          left: 20,
+          left: 40,
           pieces: [ // 自定义『分段式视觉映射组件（visualMapPiecewise）』的每一段的范围，以及每一段的文字，以及每一段的特别的样式
-            {gt: 80, lte: 100, label: '>80', color: '#4dc72e'}, // (500, 900]
-            {gt: 75, lte: 80, label: '75~80', color: '#60ecd2'}, // (310, 500]
-            {gt: 70, lte: 75, label: '70~75', color: '#44b2e5'}, // (200, 300]
-            {gt: 0, lte: 70, label: '<70', color: '#937dcc'},
-            {value: 0, label: '无数据', color: '#999'} // [0]
+            {gte: 80, lt: 100, label: '>80', color: '#4dc72e'},
+            {gte: 75, lt: 80, label: '75~80', color: '#60ecd2'},
+            {gte: 70, lt: 75, label: '70~75', color: '#44b2e5'},
+            {gte: 0, lt: 70, label: '<70', color: '#937dcc'},
+            {value: 0, label: '无数据', color: '#999'}
           ]
         },
         geo: { // https://echarts.apache.org/zh/option.html#geo

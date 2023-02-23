@@ -108,6 +108,7 @@ export default {
     //避免启动时出现空数据
     this.$store.commit("getCurrentGdp");
     this.$store.commit("getCurrentDependencyRatio");
+    this.$store.commit("getCurrentNationalAgeStructure");
   }
 }
 </script>

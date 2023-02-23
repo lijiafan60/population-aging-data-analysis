@@ -19,13 +19,19 @@ import Echart from "@/common/echart/index.vue";
 export default {
   name: "rosePieChart",
   data() {
-    return {
-      options: {
+    return {};
+  },
+  components: {
+    Echart,
+  },
+  computed: {
+    options() {
+      return {
         title: {
-          text: '年龄结构',
-          // subtext: '江苏省',
+          text: this.$store.state.year + ' 年全国年龄结构',
           left: 'center'
         },
+
         legend: {
           top: 'bottom'
         },
@@ -37,33 +43,18 @@ export default {
           {
             name: '年龄结构',
             type: 'pie',
-            radius: [30, 150],
-            center: ['50%', '50%'],
-            roseType: 'area',
-            itemStyle: {
-              borderRadius: 8
-            },
+            selectedMode: 'single',
+            selectedOffset: 10,
             label: {
               show: false
             },
-            emphasis: {
-              label: {
-                show: true
-              }
-            },
-            data: [
-              {value: 25, name: '0-14'},
-              {value: 35, name: '15-64'},
-              {value: 40, name: '65以上'},
-            ]
+            data: this.$store.state.currentNationalAgeStructure
           }
         ]
+
       }
-    };
-  },
-  components: {
-    Echart,
-  },
+    }
+  }
 }
 </script>
 

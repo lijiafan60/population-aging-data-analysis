@@ -7,13 +7,13 @@ export default new Vuex.Store({
     state: {
         year: "2011",
         province: "",
-        hoverProvince:"",
         mapName: "ChinaMap",
         currentGdp: [],
         currentDependencyRatio: [],
         currentNaturalGrowthRate: [],
         currentBirthRate: [],
         currentDieRate: [],
+        currentNationalAgeStructure: [],
         allGdp: {
             "2022": {
                 "北京市": "41611",
@@ -885,6 +885,19 @@ export default new Vuex.Store({
             "青海": ["6.12", "6.06", "6.13", "6.18", "6.17", "6.18", "6.17", "6.25", "6.08", "6.91"],
             "宁夏": ["4.68", "4.33", "4.5", "4.53", "4.58", "4.72", "4.75", "5.54", "5.69", "6.09"],
             "新疆": ["4.42", "4.48", "4.92", "4.97", "4.51", "4.26", "4.48", "4.56", "4.45", "5.6"]
+        },
+        allNationalAgeStructure: {
+            "2021": {"0-14岁人口(万人)": "24678", "15-64岁人口(万人)": "96526", "65岁及以上人口(万人)": "20056"},
+            "2020": {"0-14岁人口(万人)": "25277", "15-64岁人口(万人)": "96871", "65岁及以上人口(万人)": "19064"},
+            "2019": {"0-14岁人口(万人)": "23689", "15-64岁人口(万人)": "99552", "65岁及以上人口(万人)": "17767"},
+            "2018": {"0-14岁人口(万人)": "23751", "15-64岁人口(万人)": "100065", "65岁及以上人口(万人)": "16724"},
+            "2017": {"0-14岁人口(万人)": "23522", "15-64岁人口(万人)": "100528", "65岁及以上人口(万人)": "15961"},
+            "2016": {"0-14岁人口(万人)": "23252", "15-64岁人口(万人)": "100943", "65岁及以上人口(万人)": "15037"},
+            "2015": {"0-14岁人口(万人)": "22824", "15-64岁人口(万人)": "100978", "65岁及以上人口(万人)": "14524"},
+            "2014": {"0-14岁人口(万人)": "22712", "15-64岁人口(万人)": "101032", "65岁及以上人口(万人)": "13902"},
+            "2013": {"0-14岁人口(万人)": "22423", "15-64岁人口(万人)": "101041", "65岁及以上人口(万人)": "13262"},
+            "2012": {"0-14岁人口(万人)": "22427", "15-64岁人口(万人)": "100718", "65岁及以上人口(万人)": "12777"},
+            "2011": {"0-14岁人口(万人)": "22261", "15-64岁人口(万人)": "100378", "65岁及以上人口(万人)": "12277"}
         }
     },
     getters: {},
@@ -892,11 +905,13 @@ export default new Vuex.Store({
         clickProvinceName(state, name) {
             state.province = name;
             state.mapName = "ProvinceDetail";
-        },
+        }
+        ,
         backToChinaMap(state) {
             state.province = "";
             state.mapName = "ChinaMap";
-        },
+        }
+        ,
         getCurrentGdp(state) {
             this.state.currentGdp = [];
             let currentYear = state.year;
@@ -907,7 +922,8 @@ export default new Vuex.Store({
             this.state.currentGdp.sort((a, b) => {
                 return b[1] - a[1];
             })
-        },
+        }
+        ,
         getCurrentDependencyRatio(state) {
             this.state.currentDependencyRatio = [];
             let currentYear = state.year;
@@ -918,24 +934,36 @@ export default new Vuex.Store({
             this.state.currentDependencyRatio.sort((a, b) => {
                 return b[1] - a[1];
             })
-        },
+        }
+        ,
         setYear(state, currentYear) {
             state.year = currentYear;
-        },
+        }
+        ,
 
         getCurrentNaturalGrowthRate(state) {
             state.currentNaturalGrowthRate = state.allNaturalGrowthRate[state.province]
-        },
+        }
+        ,
         getCurrentBirthRate(state) {
             state.currentBirthRate = state.allBirthRate[state.province]
-        },
+        }
+        ,
         getCurrentDieRate(state) {
             state.currentDieRate = state.allDieRate[state.province]
         },
-        setHoverProvince(state,param) {
-            state.hoverProvince = param
+        getCurrentNationalAgeStructure(state) {
+            state.currentNationalAgeStructure = [];
+            let nationalAgeStructure = state.allNationalAgeStructure[state.year];
+            for(let item in nationalAgeStructure) {
+                console.log(item + " : " + nationalAgeStructure[item]);
+                state.currentNationalAgeStructure.push({"name":item,"value":nationalAgeStructure[item]})
+            }
+            console.log(state.currentNationalAgeStructure)
         }
-    },
-    actions: {},
+    }
+    ,
+    actions: {}
+    ,
     modules: {}
 })

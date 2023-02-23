@@ -45,6 +45,11 @@
       2019
     </div>
     <div class="line"></div>
+    <div class="item" @click="changeYear(2020)">
+      <br>
+      2020
+    </div>
+    <div class="line"></div>
     <div class="item" @click="changeYear(2021)">
       <br>
       2021
@@ -61,6 +66,7 @@ export default {
       this.$store.commit("setYear", currentYear)
       this.$store.commit("getCurrentGdp")
       this.$store.commit("getCurrentDependencyRatio")
+      this.$store.commit("getCurrentNationalAgeStructure")
     }
   }
 }

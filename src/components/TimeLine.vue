@@ -2,7 +2,8 @@
   <div class="timeline">
     <div v-for="index in 21" :key="index" :id="generateId(index)" :class="generateClass(index)"
          @click="changeYear(index)" ref="timeLineItem">
-      {{ text(index) }}
+      <br>
+      <span class="item-text">{{ text(index) }}</span>
     </div>
   </div>
 </template>
@@ -27,6 +28,7 @@ export default {
       el.style.backgroundColor = "green";
       pel.style.backgroundColor = "white";
       this.currentIndex = index;
+
       let currentYear = index / 2 - 0.5 + this.begin;
       this.$store.commit("setYear", currentYear)
       this.$store.commit("getCurrentGdp")
@@ -35,7 +37,7 @@ export default {
     },
     generateId(index) {
       if (index % 2 === 1) {
-        return "item-" + (index / 2 + 1);
+        return "item-" + (index / 2 + 0.5);
       } else {
         return "line-" + index / 2;
       }
@@ -44,7 +46,8 @@ export default {
       return (index % 2 === 1 ? "item" : "line")
     },
     text(index) {
-      return (index % 2 === 1 ? (index / 2 - 0.5 + this.begin) : "")
+      let text = (index % 2 === 1 ? (index / 2 - 0.5 + this.begin) : "")
+      return "\n" + text;
     }
   },
   mounted() {
@@ -67,7 +70,18 @@ export default {
     height: 10px;
     background-color: white;
     border-radius: 50%;
-    text-align: center;
+
+    .item-text {
+      width: 15px;
+      height: 8px;
+      position: relative;
+      left: -8px;
+
+    }
+  }
+
+  .item:hover {
+    cursor: pointer;
   }
 
   .line {

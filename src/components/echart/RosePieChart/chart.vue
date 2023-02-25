@@ -3,8 +3,8 @@
     <div class="bg-color-black">
       <div class="d-flex jc-center">
         <Echart
-            width="368px"
-            height="410px"
+            width="420px"
+            height="420px"
             style="margin-top: 20px"
             :options="options"
         ></Echart>
@@ -29,10 +29,10 @@ export default {
       return {
         title: {
           text: this.$store.state.year + ' 年全国年龄结构',
-          left: 'center'
+          left: 'center',
         },
-
         legend: {
+          show: false,
           top: 'bottom'
         },
         tooltip: {
@@ -46,7 +46,9 @@ export default {
             selectedMode: 'single',
             selectedOffset: 10,
             label: {
-              show: false
+              show: true,
+              color: '#fff',
+              overflow: 'break'
             },
             data: this.$store.state.currentNationalAgeStructure
           }

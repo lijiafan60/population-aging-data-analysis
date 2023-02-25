@@ -956,10 +956,8 @@ export default new Vuex.Store({
             state.currentNationalAgeStructure = [];
             let nationalAgeStructure = state.allNationalAgeStructure[state.year];
             for(let item in nationalAgeStructure) {
-                console.log(item + " : " + nationalAgeStructure[item]);
                 state.currentNationalAgeStructure.push({"name":item,"value":nationalAgeStructure[item]})
             }
-            console.log(state.currentNationalAgeStructure)
         }
     }
     ,

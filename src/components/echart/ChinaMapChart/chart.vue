@@ -32,13 +32,17 @@ export default {
             {gte: 70, lt: 75, label: '70~75', color: '#44b2e5'},
             {gte: 0, lt: 70, label: '<70', color: '#937dcc'},
             {value: 0, label: '无数据', color: '#999'}
-          ]
+          ],
+          textStyle: {
+            color: '#FFFFFF'
+          }
         },
         geo: { // https://echarts.apache.org/zh/option.html#geo
           map: 'china', // 使用 registerMap 注册的地图名称
           roam: true, // 是否开启鼠标缩放和平移漫游
           zoom: 1.2, // 当前视角的缩放比例（地图的放大比例）
           label: {
+            color: '#FFFFFF', //地图上省份颜色
             show: true
           },
           itemStyle: { // 地图区域的多边形 图形样式。

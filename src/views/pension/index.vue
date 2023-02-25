@@ -5,7 +5,7 @@
         <div class="bg-color-black">
           <div class="d-flex jc-center provinceBox">
             <div class="provinceItem" v-for="province in this.$store.state.allProvince" v-bind:key="province.name" @click="changeProvince(province.name)">
-              <span> {{province["name"]}} </span>
+              <span> {{trans(province["name"])}} </span>
             </div>
           </div>
         </div>
@@ -17,7 +17,7 @@
           <div class="d-flex jc-center">
             <div class="left-1">
               <div class="outside">
-                <span class="outside-text">城镇基本养老保险</span>
+                <span class="outside-text">城镇职工基本养老保险</span>
               </div>
               <div class="inside">
                 <span class="inside-text" @click="changeIndex('BasicPensionNumber')">参保人数</span>
@@ -77,6 +77,10 @@ export default {
     },
     changeProvince(province) {
       this.$store.state.pensionProvince = province;
+    },
+    trans(text) {
+      if(text.length == 3) return text;
+      else return (text[0] + "  " + text[1]);
     }
   }
 }

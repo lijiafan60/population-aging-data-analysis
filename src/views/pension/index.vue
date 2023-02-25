@@ -1,14 +1,20 @@
 <template>
   <div class="body-box">
-    <div class="left-box">
+    <div class="left-box-1">
+      <dv-border-box12 style="padding: 16px">
+        <div class="bg-color-black">
+          <div class="d-flex jc-center provinceBox">
+            <div class="provinceItem" v-for="province in this.$store.state.allProvince" v-bind:key="province.name" @click="changeProvince(province.name)">
+              <span> {{province["name"]}} </span>
+            </div>
+          </div>
+        </div>
+      </dv-border-box12>
+    </div>
+    <div class="left-box-2">
       <dv-border-box12 style="padding: 16px">
         <div class="bg-color-black">
           <div class="d-flex jc-center">
-            <div class="left-0">
-              <div class="province-text">
-                <my-select class="my-select" :options="options" v-model="choice"></my-select>
-              </div>
-            </div>
             <div class="left-1">
               <div class="outside">
                 <span class="outside-text">城镇基本养老保险</span>
@@ -63,31 +69,14 @@ export default {
   data() {
     return {
       index: "BasicPensionNumber",
-      options: [
-        {
-          key: 1,
-          text: "江苏"
-        },
-        {
-          key: 2,
-          text: "北京"
-        },
-        {
-          key: 3,
-          text: "江西"
-        },
-        {
-          key: 4,
-          text: "山东"
-        }
-      ],
-      choice: ""
     }
   },
   methods: {
     changeIndex(curIndex) {
       this.index = curIndex;
-      console.log(this.index)
+    },
+    changeProvince(province) {
+      this.$store.state.pensionProvince = province;
     }
   }
 }
@@ -100,8 +89,30 @@ export default {
   display: flex;
   flex-direction: row;
 
-  .left-box {
-    width: 500px;
+  .left-box-1 {
+    width: 200px;
+    margin-right: 20px;
+
+    .bg-color-black {
+      height: 900px;
+      border-radius: 10px;
+
+      .provinceBox {
+        flex-direction: column;
+        align-items: center;
+
+        .provinceItem {
+          margin: 4px;
+
+        }
+      }
+
+    }
+
+  }
+
+  .left-box-2 {
+    width: 390px;
     margin-right: 20px;
 
     .bg-color-black {
@@ -113,28 +124,14 @@ export default {
       flex-direction: column;
     }
 
-    .left-0 {
-      margin-top: 50px;
-      margin-left: 50px;
-
-      .province-text {
-        font-size: x-large;
-
-        .my-select {
-          position: absolute;
-          z-index: 10;
-        }
-      }
-    }
-
     .left-1 {
       margin-top: 100px;
-      margin-left: 50px;
+      margin-left: 10px;
     }
 
     .left-2 {
       margin-top: 120px;
-      margin-left: 50px;
+      margin-left: 10px;
     }
 
     .outside {
@@ -146,7 +143,6 @@ export default {
     .inside {
       margin-top: 50px;
       margin-left: 50px;
-
       .inside-text {
         font-size: x-large;
       }

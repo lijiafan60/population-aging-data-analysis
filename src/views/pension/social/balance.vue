@@ -1,5 +1,5 @@
 <template>
-<EChart height="800px" width="1250px" :options="options"></EChart>
+<EChart height="800px" width="1250px" :options="option"></EChart>
 </template>
 
 <script>
@@ -10,50 +10,61 @@ export default {
   components: {EChart},
   data() {
     return {
-      options: {
+    }
+  },
+  computed: {
+    option() {
+      return {
         tooltip: {
-          trigger: 'axis'
+          trigger: 'axis',
+          axisPointer: {
+            type: 'shadow'
+          }
         },
         legend: {
-          data: ['总人数', '在职人数', '离职人数']
+          data: ['收入', '支出', '结余']
         },
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: {
-          type: 'category',
-          name: '年份',
-          boundaryGap: false,
-          data: ['2016', '2017', '2018', '2019', '2020', '2021', '2022']
-        },
-        yAxis: {
-          type: 'value',
-          name: '人数（千万）'
-        },
+        xAxis: [
+          {
+            type: 'category',
+            data: ['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value'
+          }
+        ],
         series: [
           {
-            name: '总人数',
-            type: 'line',
-            stack: 'Total',
-            data: [10, 15, 12.5, 5, 5, 5, 5]
+            name: '收入',
+            type: 'bar',
+            emphasis: {
+              focus: 'series'
+            },
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            data: [...this.$store.state.SocialPensionBalance.income[this.$store.state.pensionProvince]].reverse()
           },
           {
-            name: '在职人数',
-            type: 'line',
-            stack: 'Total',
-            data: [22, 18, 19, 23, 29, 33, 31]
+            name: '支出',
+            type: 'bar',
+            emphasis: {
+              focus: 'series'
+            },
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            data: [...this.$store.state.SocialPensionBalance.expenses[this.$store.state.pensionProvince]].reverse()
           },
           {
-            name: '离职人数',
-            type: 'line',
-            stack: 'Total',
-            data: [15, 23, 21, 15, 19, 13, 10]
+            name: '结余',
+            type: 'bar',
+            emphasis: {
+              focus: 'series'
+            },
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            data: [...this.$store.state.SocialPensionBalance.surplus[this.$store.state.pensionProvince]].reverse()
           }
         ]
-      },
+      }
     }
   }
 }

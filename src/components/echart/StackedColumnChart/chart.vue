@@ -41,7 +41,7 @@ export default {
         },
         xAxis: {
           type: 'category',
-          data: ['2011', '2012', '2013', '2014', '2015', '2016', '2017','2018','2019','2021']
+          data: ['2011', '2012', '2013', '2014', '2016', '2017','2018','2019','2021']
         },
         series: [
           {
@@ -51,6 +51,7 @@ export default {
             stack: 'total',
             label: {
               show: true,
+              color: "white"
             },
             emphasis: {
               focus: 'series'
@@ -63,7 +64,8 @@ export default {
             barWidth: 15,
             stack: 'total',
             label: {
-              show: true
+              show: true,
+              color: 'white',
             },
             emphasis: {
               focus: 'series'
@@ -76,7 +78,8 @@ export default {
             barWidth: 15,
             stack: 'total',
             label: {
-              show: true
+              show: true,
+              color: 'white'
             },
             emphasis: {
               focus: 'series'

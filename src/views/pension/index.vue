@@ -5,7 +5,7 @@
         <div class="bg-color-black">
           <div class="d-flex jc-center provinceBox">
             <div class="provinceItem" v-for="province in this.$store.state.allProvince" v-bind:key="province.name" @click="changeProvince(province.name)">
-              <span> {{trans(province["name"])}} </span>
+              <span v-html="trans(province.name)"></span>
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@ export default {
     },
     trans(text) {
       if(text.length == 3) return text;
-      else return (text[0] + "  " + text[1]);
+      else return (text[0] + "&nbsp;&nbsp;&nbsp;" + text[1]);
     }
   }
 }

@@ -32,7 +32,7 @@ export default {
           left: 'center',
         },
         legend: {
-          show: false,
+          show: true,
           top: 'bottom'
         },
         tooltip: {
@@ -48,6 +48,8 @@ export default {
             label: {
               show: true,
               color: '#fff',
+              position: 'inside',
+              formatter: '{d}%',
               overflow: 'break'
             },
             data: this.$store.state.currentNationalAgeStructure

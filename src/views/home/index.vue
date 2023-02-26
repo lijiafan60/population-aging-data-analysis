@@ -8,7 +8,7 @@
       </div>
       <div>
         <dv-border-box12>
-          <rose-pie-chart/>
+          <component :is="leftBottom"/>
         </dv-border-box12>
       </div>
     </div>
@@ -51,6 +51,7 @@ import ScrollBoard from "@/components/ScrollBoard.vue";
 import ChinaMap from "@/components/echart/ChinaMapChart/chart.vue";
 import ProvinceDetail from "@/components/echart/ProvinceDetail/index.vue";
 import TimeLine from "@/components/TimeLine.vue";
+import StackedColumnChart from "@/components/echart/StackedColumnChart/chart.vue"
 
 export default {
   name: "index_page",
@@ -60,7 +61,8 @@ export default {
     ScrollBoard,
     MultipleYAxisChart,
     RosePieChart,
-    ProvinceDetail
+    ProvinceDetail,
+    StackedColumnChart
   },
   data() {
     return {}
@@ -68,6 +70,9 @@ export default {
   computed: {
     centerName() {
       return this.$store.state.mapName
+    },
+    leftBottom() {
+      return (this.$store.state.province === "" ?  "RosePieChart" :  "StackedColumnChart")
     },
     gdp() {
       return {

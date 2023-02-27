@@ -18,9 +18,7 @@
           <div class="map-box">
             <div class="bg-color-black">
               <div class="box-content">
-                <KeepAlive>
-                  <component :is="centerName"/>
-                </KeepAlive>
+                <component :is="centerName"/>
               </div>
               <time-line v-show="centerName == 'ChinaMap'"/>
             </div>
@@ -72,7 +70,7 @@ export default {
       return this.$store.state.mapName
     },
     leftBottom() {
-      return (this.$store.state.province === "" ?  "RosePieChart" :  "StackedColumnChart")
+      return (this.$store.state.province === "" ? "RosePieChart" : "StackedColumnChart")
     },
     gdp() {
       return {

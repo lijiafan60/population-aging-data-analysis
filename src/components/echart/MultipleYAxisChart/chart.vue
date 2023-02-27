@@ -22,7 +22,7 @@ export default {
     return {
       options: {
         title: {
-          text: '人口自然增长率',
+          text: '全国人口变化情况',
           left: 'center'
         },
         color: ['#F02FC2', '#956FD4'],
